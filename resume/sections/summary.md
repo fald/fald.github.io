@@ -1,0 +1,3 @@
+## PROFESSIONAL SUMMARY
+
+Python-focused data and technology professional with a background in computer science, software development, automation and data analysis, currently specializing in applied data science and AI. Experienced in Python scripting, database work, analytical workflows and technical problem-solving, with earlier experience involving solar-data analysis and power-generation estimation. Building modern projects spanning renewable-energy analytics, financial analysis, data engineering and AI-assisted applications.
