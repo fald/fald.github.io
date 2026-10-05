@@ -1,24 +1,28 @@
 import argparse
 from pathlib import Path
+import markdown
+from justhtml import JustHTML
 
 parser = argparse.ArgumentParser(description="Build a resume from component parts.")
 parser.add_argument("-o", "--output", 
-                    help="output file or directory",
-                    default=Path("../outputs/"),
+                    help="output directory",
+                    default=Path("../outputs"),
                     metavar="PATH",
-                    type=Path,
+                    type=Path
                     )
 
 parser.add_argument("-f", "--format",
                     help="output format(s)",
-                    default="both",
-                    choices=['md', 'pdf', 'both'],
+                    # pdf is such a goddamn pain
+                    default=['md', 'html'],
+                    choices=['md', 'html'],
+                    nargs='+'
                     )
 
 parser.add_argument("-p", "--profile",
                     help="profile variant",
                     default="base",
-                    choices=['base', 'ai', 'fintech', 'consulting'],
+                    choices=['base', 'ai', 'fintech', 'consulting']
                     # sections with filename ending in _<profile>,
                     # except for base, get used; experience_ai.md, for ex.
                     # should give feedback for which sections
@@ -75,10 +79,34 @@ for section in sections:
     # Smoother.
     content.append(path.read_text(encoding='utf-8'))
 
+
+# lol overkill, I know my own name and no one else is
+# gonna use this.
+name = content[0][2:content[0].index('\n')].replace(' ', '-')
+
+
 # ---
 # FORMAT
 # ---
+# This is intermediate to html, so it'll always happen
+md = '\n\n'.join(content)
+
+if 'html' in args.format:
+    fragment = markdown.markdown(md)
+    html = JustHTML(fragment).to_html()
+
 
 # ---
 # OUTPUT 
 # ---
+# ensure directory exists
+output = args.output / args.profile
+output.mkdir(parents=True, exist_ok=True)
+
+# within folder, place the file(s)
+if 'md' in args.format:
+    # with open(output) # nope, Path has its own thing
+    (output / f'{name}.md').write_text(md, encoding='utf-8')
+
+if 'html' in args.format:
+    (output / f'{name}.html').write_text(html, encoding='utf-8')
