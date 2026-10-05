@@ -1,7 +1,6 @@
 import argparse
 from pathlib import Path
 import markdown
-from justhtml import JustHTML
 
 parser = argparse.ArgumentParser(description="Build a resume from component parts.")
 parser.add_argument("-o", "--output", 
@@ -93,14 +92,18 @@ md = '\n\n'.join(content)
 
 if 'html' in args.format:
     fragment = markdown.markdown(md)
-    # html = JustHTML(fragment).to_html()
-    # feels...sloppy
     description = ""
     p_title = ""
     title = ""
-    stylesheet = "../assets/styles/resume.css"
+    stylesheet = "/assets/css/resume.css"
+    button = """<aside><a class="download-button" href="resume.pdf" download>
+    Download PDF
+</a></aside><main>"""
 
+    # TODO: Split the fragment from the page lol
     html = Path('../../templates/base.html').read_text(encoding='utf-8')
+    # Infomercial voice: There's gotta be a better way! (There are several)
+    # TODO: Download button
     html = (
         html
         .replace('/assets/css/main.css', stylesheet)
@@ -108,7 +111,8 @@ if 'html' in args.format:
         .replace('{{PAGE TITLE}}', p_title)
         .replace('{{MAIN PAGE TITLE}}', title)
         .replace('{{PAGE CONTENT}}', fragment)
-    )
+        .replace('<main>', button)
+        )
 
 
 
