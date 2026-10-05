@@ -21,7 +21,8 @@ parser.add_argument("-f", "--format",
 parser.add_argument("-p", "--profile",
                     help="profile variant",
                     default="base",
-                    choices=['base', 'ai', 'fintech', 'consulting']
+                    # TODO: probably just remove choices
+                    choices=['base', 'adgm', 'ai', 'fintech', 'consulting']
                     # sections with filename ending in _<profile>,
                     # except for base, get used; experience_ai.md, for ex.
                     # should give feedback for which sections
@@ -103,7 +104,6 @@ if 'html' in args.format:
     # TODO: Split the fragment from the page lol
     html = Path('../../templates/base.html').read_text(encoding='utf-8')
     # Infomercial voice: There's gotta be a better way! (There are several)
-    # TODO: Download button
     html = (
         html
         .replace('/assets/css/main.css', stylesheet)

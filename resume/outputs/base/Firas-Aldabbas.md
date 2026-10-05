@@ -1,10 +1,9 @@
 # Firas Aldabbas
-<!-- UAE/ME only: Nationality: British    | Available to relocate -->
 
 firas.aldabbas@gmail.com  | Ontario, Canada  
-**Linkedin**:   https://www.linkedin.com/in/firas-aldabbas/  
-**Github**:     https://www.github.com/fald  
-**Portfolio**:  https://www.fald.github.io  
+Linkedin:   https://www.linkedin.com/in/firas-aldabbas/  
+Github:     https://www.github.com/fald  
+Portfolio:  https://www.fald.github.io  
 
 ## PROFESSIONAL SUMMARY
 
@@ -27,8 +26,8 @@ Python-focused data and technology professional with a background in computer sc
 
 ## PROFESSIONAL EXPERIENCE
 
-Data Annotation | AI Trainer  
-Remote          | MAR 2024 - Present  
+**Data Annotation | AI Trainer**  
+*Remote | MAR 2024 - Present*  
 
 - Evaluate AI model outputs across a wide range of technical, reasoning, and instruction-following tasks.
 - Design task-specific evaluation rubrics and criteria to assess model quality, correctness, and adherence to requirements.
@@ -36,21 +35,17 @@ Remote          | MAR 2024 - Present
 - Develop challenging and edge-case requirements to probe model capabilities and expose failure modes.
 - Provide structured feedback and corrections to support iterative improvement of AI model performance and reliability.
 
-Aplikatest      | Curriculum Development Manager, Teacher  
-Remote          | MAY 2020 - MAY 2024  
-<!-- Too up my own ass, skip.
-    - Analyzed student performance data to provide actionable feedback and improve teaching strategies.
-    - Collaborated with other teachers and management to create data-driven syllabi for various course offerings to meet specified requirements.
-    - Achieved 80% reduction in overall class planning time through process optimization and automation.
--->
+**Aplikatest | Curriculum Development Manager, Teacher**  
+*Remote | MAY 2020 - MAY 2024*  
+
 - Developed and delivered online English-language and test-preparation instruction for international students (TOEFL, IELTS, OET).
 - Managed curriculum planning and learning materials across multiple courses and student groups.
 - Automated recurring administrative and planning tasks, reducing overhead by approximately 80%.
 - Used structured spreadsheets and operational data to track payments, course coverage, and instructional planning.
 - Coordinated curriculum requirements and communicated changes across teaching activities.
 
-WSW Systems     | Programmer Analyst, IT Technician  
-Oakville, ON    | APR 2014 - MAR 2020  
+**WSW Systems | Programmer Analyst, IT Technician**  
+*Oakville, ON | APR 2014 - MAR 2020*  
 
 - Developed Python and scripting solutions to automate repetitive operational and technical tasks.
 - Worked with structured data and databases to support internal analysis and reporting.
@@ -60,19 +55,18 @@ Oakville, ON    | APR 2014 - MAR 2020
 - Investigated technical problems, documented findings, and translated requirements into practical solutions.
 
 
-Desiyn          | Web Developer  
-Mississauga, ON | MAR 2014 - SEP 2015  
+**Desiyn | Web Developer**  
+*Mississauga, ON | MAR 2014 - SEP 2015*  
 
 -  Developed and maintained WordPress websites using PHP and MySQL.
 - Used web performance and load-time analysis tools to identify performance issues.
 - Investigated and reduced unnecessary WordPress plugin usage to improve site performance and maintainability.
 - Worked with database-backed web applications and resolved technical issues across the site stack.
 
-
 ## EDUCATION
 
-MSc. - Data Science     | University of Colorado  
-2027 
+**University of Colorado**  
+MSc. - Data Science (2027 - expected)  
 
-BSc. - Computer Science | University of Toronto  
-2014
+**University of Toronto**  
+BSc. - Computer Science (2014)
