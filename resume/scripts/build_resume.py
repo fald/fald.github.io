@@ -93,7 +93,23 @@ md = '\n\n'.join(content)
 
 if 'html' in args.format:
     fragment = markdown.markdown(md)
-    html = JustHTML(fragment).to_html()
+    # html = JustHTML(fragment).to_html()
+    # feels...sloppy
+    description = ""
+    p_title = ""
+    title = ""
+    stylesheet = "../assets/styles/resume.css"
+
+    html = Path('../../templates/base.html').read_text(encoding='utf-8')
+    html = (
+        html
+        .replace('/assets/css/main.css', stylesheet)
+        .replace('{{PAGE DESCRIPTION}}', description)
+        .replace('{{PAGE TITLE}}', p_title)
+        .replace('{{MAIN PAGE TITLE}}', title)
+        .replace('{{PAGE CONTENT}}', fragment)
+    )
+
 
 
 # ---
