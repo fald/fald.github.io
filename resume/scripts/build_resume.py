@@ -33,8 +33,6 @@ parser.add_argument("-p", "--profile",
 
 args = parser.parse_args()
 
-print(args)
-
 sections = [
     'header',
     'summary',
@@ -45,11 +43,42 @@ sections = [
     'education'
 ]
 
-# CHOOSING SECTIONS
-# TODO: --sections overrides
-section_dir = Path('../sections/')
+# ---
+# PROFILE
+# ---
+section_dir = Path('../sections')
 
-if args.profile != 'base':
-    postfix = f'_{args.profile}.md'
-else:
-    postfix = '.md'
+# if args.profile != 'base':
+postfix = f'_{args.profile}' if args.profile != 'base' else ''
+
+
+# could probably interleave with file opening
+# but then have to deal with format choices etc
+# so nah
+content = []
+
+for section in sections:
+    path = section_dir / f'{section}.md'
+    if postfix:
+        profile_path = section_dir / f'{section}{postfix}.md'
+        if profile_path.exists():
+            path = profile_path
+        else:
+            print(f'WARNING: no {args.profile} variant for {section}. Falling back to default.')
+
+    if not path.exists():
+        print(f'WARNING: missing section: {section}')
+        continue
+
+    # with open(path, 'r') as f:
+    #     content.append(f.read())
+    # Smoother.
+    content.append(path.read_text(encoding='utf-8'))
+
+# ---
+# FORMAT
+# ---
+
+# ---
+# OUTPUT 
+# ---
