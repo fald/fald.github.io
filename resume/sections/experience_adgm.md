@@ -9,6 +9,7 @@
 - Develop challenging and edge-case requirements to probe model capabilities and expose failure modes.
 - Provide structured feedback and corrections to support iterative improvement of AI model performance and reliability.
 
+
 **Aplikatest | Curriculum Development Manager, Teacher**  
 *Remote | MAY 2020 - MAY 2024*  
 <!-- Too up my own ass, skip.
@@ -21,6 +22,7 @@
 - Automated recurring administrative and planning tasks, reducing overhead by approximately 80%.
 - Used structured spreadsheets and operational data to track payments, course coverage, and instructional planning.
 - Coordinated curriculum requirements and communicated changes across teaching activities.
+
 
 **WSW Systems | Programmer Analyst, IT Technician**  
 *Oakville, ON | APR 2014 - MAR 2020*  

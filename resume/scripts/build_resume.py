@@ -2,6 +2,14 @@ import argparse
 from pathlib import Path
 import markdown
 
+# TODO: split the fragment from the display page
+# TODO: and have some other way to select which version to display
+# TODO: On such pages, fill in necessary parts of the template.
+# TODO: Hide email from showing up and being scrapeable
+# TODO: Github Actions to auto-process
+# TODO: pdf version on github action
+# TODO: Private site, split public-facing from actual repo
+# TODO: Also, endless scroll? This todo shouldn't be here, but.
 parser = argparse.ArgumentParser(description="Build a resume from component parts.")
 parser.add_argument("-o", "--output", 
                     help="output directory",
@@ -109,7 +117,7 @@ if 'html' in args.format:
         .replace('/assets/css/main.css', stylesheet)
         .replace('{{PAGE DESCRIPTION}}', description)
         .replace('{{PAGE TITLE}}', p_title)
-        .replace('{{MAIN PAGE TITLE}}', title)
+        .replace('{{MAIN TITLE}}', title)
         .replace('{{PAGE CONTENT}}', fragment)
         .replace('<main>', button)
         )
