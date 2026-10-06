@@ -1,0 +1,8 @@
+{
+    {{PAGE_DESCRIPTION}}: _,
+    {{CSS}}: _,
+    {{PAGE_TITLE}}: _,
+    {{MAIN_TITLE}}: _, // the visible part vs the in-depth one
+    {{MAIN_CONTENT}}: _,
+    {{ASIDE_CONTENT}}: _
+}
