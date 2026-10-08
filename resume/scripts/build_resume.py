@@ -14,6 +14,7 @@ import markdown
 # TODO: Include Itch.io at some point
 # TODO: refactor resume/scripts to /scripts
 # TODO: git, linkedin, vibe-git links for aside
+# TODO: PDF
 parser = argparse.ArgumentParser(description="Build a resume from component parts.")
 parser.add_argument("-o", "--output", 
                     help="output directory",
