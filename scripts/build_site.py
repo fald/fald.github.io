@@ -1,22 +1,11 @@
 from pathlib import Path
 import json
 
-pages = Path('../data')
+pages = Path('../data').glob("*.json")
 templates = Path('../templates')
-loaded_templates = {
 
-}
-
-def load_json(path):
-    return json.loads(path.read_text(encoding='utf-8'))
-
-def load_page_data(pages):
-    return pages.iterdir()
-
-
-pages = load_page_data(pages)
 for page in pages:
-    data = load_json(page)
+    data = json.loads(page.read_text(encoding='utf-8'))
 
     location = Path(f"../{data['location']}")
     template = (
@@ -27,12 +16,21 @@ for page in pages:
     del data['template']
 
     for key in data:
-        if type(data[key]) is list:
-            data[key] = "\n".join(data[key])
+        # if isinstance(data[key], list):
+        #     data[key] = "\n".join(data[key])
+        if key in ['main_content', 'aside'] and data[key]:
+            replacement = (
+                Path(f"../templates/{data[key]}")
+                .read_text(encoding='utf-8')
+            )
+        else:
+            replacement = data[key]
         template = (
             template
-            .replace('{{' + key + '}}', data[key])
+            .replace('{{' + key + '}}', replacement)
         )
 
-    location.write_text(template)
+    location.write_text(template, encoding='utf-8')
+
+    break
 

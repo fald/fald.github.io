@@ -1,6 +1,6 @@
 /*
-    Same as resume.css, this file is LLM-generated because I
-    hate CSS so much.
+    Same as resume.css, this file is (almost, but not quite, entirely) 
+    LLM-generated because I hate CSS so much.
     It is not checked, verified, or demonstrative of my own
     capacity to do CSS.
 /* 
@@ -65,6 +65,10 @@ aside {
     padding: 18px;
     background: #f5f5f5;
     border-left: 3px solid #ccc;
+}
+
+aside:empty {
+    display: none;
 }
 
 .content-with-aside {

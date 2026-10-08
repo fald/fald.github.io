@@ -4,45 +4,86 @@
         <meta charset="UTF-8" />
         <meta
             name="description" 
-            content="{{PAGE DESCRIPTION}}" />
+            content="{{description}}" />
         <meta 
             name="viewport" 
             content="width=device-width, initial-scale=1.0" />
 
-        <link href="/assets/css/main.css" rel="stylesheet" />
+        <link href="{{css}}" rel="stylesheet" />
         <link href="/assets/images/favicon.ico" rel="icon" />
-        <title>{{PAGE TITLE}}</title>
+        <title>{{title}}</title>
     </head>
     <body>
         <header>
             <img src="" alt="" />
-            <h1>{{MAIN TITLE}}</h1>
+            <hgroup>
+                <h1>Firas Aldabbas</h1>
+                <p>AI | Machine Learning | Data Analysis | Renewable Energy </p>
+            </hgroup>
             <nav>
                 <ul>
-                    <!--
-                        home
-                        about
-                        projects
-                        resume
-                        contact
-                        > LI/Git; probably just on pages?
-                        > vibecode git acct
-                    -->
+                        <li><a href="/index.html">[home]</a></li>
+                        <!-- Basically just home page.
+                        <li><a hred="/about.html">about</li>
+                        -->
+                        <li><a href="/projects/index.html">[projects]</a></li>
+                        <li><a href="/resume/index.html">[resume]</a></li>
+                        <li><a>[Github]</a></li>
+                        <li><a>[LinkedIn]</a></li>
+                        <!--
+                        <li><a>[Github (Vibe-code)]</a></li>
+                        <li><a>[other stuff]</a></li>
+                        <li><a>[current interests (tech)]</a></li>
+                        <li><a>[current interests (alt)]]</a></li>
+                        -->
+                        <li><a href="/contact.html">[contact]</a></li>
                 </ul>
             </nav>
         </header>
-
+        <div class="content-with-aside">
         <main>
-            {{PAGE CONTENT}}
-            <!-- 
-                for main, curr interests, tech, focus
-            -->
+{{main_content}}
             <!--
-                Project cards link to project pages with just summary
+                Project cards link to project pages with just 
+                summary
             -->
+           
+        <!--
+            TODO: UAE CV version: Nationality, availability to relocate
+        -->
+        
+        <!--
+            Who are you?
+            What do you do?
+            What have you built?
+            Where can I see it?
+
+
+            Firas Aldabbas
+            Python • Data • AI • Analytics
+
+            I build practical data, analytics and AI systems with Python,
+            SQL and modern machine-learning tools.
+
+
+            From LI:
+            Headline:
+                Python | Data & AI | Renewable Energy Analytics | Machine Learning | SQL
+
+            About:
+                I am a Python-focused data and technology professional with a background in computer science, software development, automation, and data science.
+
+                My current focus is applied data and AI; building analytics tools, data pipelines, predictive models, and decision support systems using Python, SQL, and AI technologies.
+
+                My technical background includes software development, scripting, database work, automation, data analysis, and technical problem-solving. I am particularly interested in the application of these skills to renewable energy, AI research, finance, and data analytics and other areas where data can support practical decisions.
+
+                I am currently developing projects spanning renewable energy analytics, financial market analysis, data engineering, and AI-assisted applications, with an emphasis on reproducibility, testing, and communicating technical results.
+
+                I am open to opportunities in data analytics, data science, data engineering, AI/ML, and technology-focused analytical roles.
+                -->
+
         </main>
-        <aside>
-            {{ASIDE CONTENT}}
-        </aside>
+        <aside>{{aside}}</aside>
+        </div>
     </body>
 </html>

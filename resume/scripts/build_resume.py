@@ -10,6 +10,9 @@ import markdown
 # TODO: pdf version on github action
 # TODO: Private site, split public-facing from actual repo
 # TODO: Also, endless scroll? This todo shouldn't be here, but.
+# TODO: Linkedin, Github profile updates
+# TODO: Include Itch.io at some point
+# TODO: refactor resume/scripts to /scripts
 parser = argparse.ArgumentParser(description="Build a resume from component parts.")
 parser.add_argument("-o", "--output", 
                     help="output directory",
