@@ -35,10 +35,13 @@ for page in page_data:
         (TEMPLATE_DIR / data['main_content_src'])
         .read_text(encoding='utf-8')
     )
-    aside_content = (
-        (TEMPLATE_DIR / data['aside_content_src'])
-        .read_text(encoding='utf-8')
-    )
+    if data['aside_content_src']:
+        aside_content = (
+            (TEMPLATE_DIR / data['aside_content_src'])
+            .read_text(encoding='utf-8')
+        )
+    else:
+        aside_content = ""
 
     # lol probably should've just stuck with a loop, oh well
     # it ain't even imposter syndrome at this point, I'm just
@@ -52,6 +55,8 @@ for page in page_data:
         .replace("{{main_content}}", main_content)
         .replace("{{aside_content}}", aside_content)
     )
+
+
 
     destination.write_text(base_template, encoding='utf-8')
 
