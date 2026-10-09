@@ -15,6 +15,11 @@ import markdown
 # TODO: refactor resume/scripts to /scripts
 # TODO: git, linkedin, vibe-git links for aside
 # TODO: PDF
+# TODO: Github align
+# TODO: handle asides better; aside tag in the sub-template,
+#   in-python handling of empty/null, deciding if I can just
+#   put ext links in contact.
+# TODO: automated tests to include json validation
 parser = argparse.ArgumentParser(description="Build a resume from component parts.")
 parser.add_argument("-o", "--output", 
                     help="output directory",
