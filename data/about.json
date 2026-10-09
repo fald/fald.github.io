@@ -1,10 +1,9 @@
 {
-    "location": "about.html",
-    "template": "base.html",
+    "destination": "about.html",
+    "base_template": "base.html",
     "css": "main.css",
-    "title": "Firas Aldabbas | About",
-    "description": "About Firas Aldabbas, a data science practitioner focused on applied AI, machine learning, data analysis, renewable energy, and AGI research.",
-    "page_title": "Firas Aldabbas",
-    "main_content": "index.html",
-    "aside": ""
+    "meta_title": "Firas Aldabbas | About",
+    "meta_description": "About Firas Aldabbas, a data science practitioner focused on applied AI, machine learning, data analysis, renewable energy, and AGI research.",
+    "main_content_src": "index.html",
+    "aside_content_src": "sidebar.html"
 }

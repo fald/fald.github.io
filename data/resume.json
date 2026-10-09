@@ -1,0 +1,9 @@
+{
+    "destination": "resume/index.html",
+    "base_template": "base.html",
+    "css": "main.css",
+    "meta_title": "Firas Aldabbas | Resume",
+    "meta_description": "",
+    "main_content_src": "resume.html",
+    "aside_content_src": "sidebar.html"
+}

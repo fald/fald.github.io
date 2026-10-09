@@ -1,0 +1,10 @@
+{
+    "destination": "projects/index.html",
+    "base_template": "base.html",
+    "css": "main.css",
+    "meta_title": "Firas Aldabbas | Projects",
+    "meta_description": "",
+    "main_content_src": "projects.html",
+    "projects": [],
+    "aside_content_src": "sidebar.html"
+}

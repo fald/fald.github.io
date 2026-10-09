@@ -1,10 +1,9 @@
 {
-    "location": "index.html",
-    "template": "base.html",
+    "destination": "index.html",
+    "base_template": "base.html",
     "css": "main.css",
-    "title": "Firas Aldabbas | Python, Data & AI, Analytics, Machine Learning",
-    "description": "Portfolio of Firas Aldabbas, covering applied AI and machine learning, data science and analytics, and data-driven projects in renewable energy and AGI research.",
-    "page_title": "Firas Aldabbas",
-    "main_content": "index.html",
-    "aside": ""
+    "meta_title": "Firas Aldabbas | Python, Data & AI, Analytics, Machine Learning",
+    "meta_description": "Portfolio of Firas Aldabbas, covering applied AI and machine learning, data science and analytics, and data-driven projects in renewable energy and AGI research.",
+    "main_content_src": "index.html",
+    "aside_content_src": "sidebar.html"
 }
