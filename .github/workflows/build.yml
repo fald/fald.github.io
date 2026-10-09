@@ -1,0 +1,79 @@
+name: Build and Deploy Portfolio
+
+on: [push, workflow_dispatch] # alt branches, pull requests will never come up
+  # push: 
+    # branches: [master]
+  # pull_request: # will probably never come up
+    # branches: [master]
+  # workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+      
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.14"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+
+      - name: Install Chromium
+        run: python -m playwright install --with-deps chromium
+
+      - name: Build resume
+        run: |
+          python scripts/build_resume.py \
+          --profile base \
+          -- format md html
+
+      - name: Build resume PDF
+        run: |
+          python scripts/build_resume_pdf.py
+
+      - name: Build website
+        run: |
+          python scripts/build_site.py
+
+      # Should this be in a separate job?
+      - name: Validate build outputs
+        run: |
+          test -f index.html
+          test -f contact.html
+          test -f resume/index.html
+          test -f projects/index.html
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v5
+        with: 
+          path: .
+
+
+  # test:
+
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.output.pages_url }}
+    runs-on: ubuntu-latest
+    needs: build
+
+    permissions:
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Deploy to Github pages
+        id: deployment
+        uses: actions/deploy-pages@v5
