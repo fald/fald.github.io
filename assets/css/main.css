@@ -293,7 +293,7 @@ object.mbox {
 }
 
 .contact-item .mbox {
-    width: 130px;
+    width: 180px;
     height: 24px;
     flex-shrink: 0;
 }
