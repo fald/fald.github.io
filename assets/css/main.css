@@ -275,3 +275,42 @@ object.mbox {
     margin: -1em 0;
     vertical-align: middle;
 }
+
+/* --------- Contact---------- */
+.contact-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin: 1.5rem 0;
+}
+
+.contact-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.contact-item .mbox {
+    width: 130px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.contact-item img {
+    display: block;
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.contact-item:hover {
+    opacity: 0.7;
+}
+
+.contact-item:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+    border-radius: 3px;
+}
