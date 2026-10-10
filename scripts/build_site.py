@@ -16,7 +16,8 @@ for page in page_data:
     # really handled apart from warnings/errors.
     destination = ROOT / data['destination']
     # ensure parent directory exists; probably not needed
-    destination.parent.mkdir(parent=True, exist_ok=True)
+    print()
+    destination.parent.mkdir(parents=True, exist_ok=True)
 
     base_template = (
         (TEMPLATE_DIR / data['base_template'])
@@ -56,7 +57,9 @@ for page in page_data:
         .replace("{{aside_content}}", aside_content)
     )
 
-
+    # lame, but works
+    if not aside_content:
+        base_template = base_template.replace('class="content-with-aside"', "")
 
     destination.write_text(base_template, encoding='utf-8')
 
