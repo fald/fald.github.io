@@ -267,3 +267,11 @@ footer {
         font-size: 15pt;
     }
 }
+
+/* ---------- SVG ---------- */
+
+object.mbox {
+    height: 2em;
+    margin: -1em 0;
+    vertical-align: middle;
+}
