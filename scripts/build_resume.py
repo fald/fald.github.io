@@ -16,9 +16,11 @@ import markdown
 # TODO: git, linkedin, vibe-git links for aside
 # TODO: PDF
 # TODO: Github align
+# TODO: Light/dark mode
 # TODO: handle asides better; aside tag in the sub-template,
 #   in-python handling of empty/null, deciding if I can just
 #   put ext links in contact.
+# TODO: Aria stuff across more pages - currently only partially in contact.html
 # TODO: automated tests to include json validation
 
 # until fix
