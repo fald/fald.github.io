@@ -281,8 +281,10 @@ object.mbox {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    /* align-items: center; */
     gap: 16px;
     margin: 1.5rem 0;
+    list-style: none;
 }
 
 .contact-item {
@@ -290,6 +292,9 @@ object.mbox {
     align-items: center;
     gap: 12px;
     text-decoration: none;
+    outline: 1px dotted;
+    padding: 2px;
+    width: 180px;
 }
 
 .contact-item .mbox {
