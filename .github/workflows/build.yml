@@ -35,7 +35,7 @@ jobs:
         run: |
           python scripts/build_resume.py \
           --profile base \
-          -- format md html
+          --format md html
 
       - name: Build resume PDF
         run: |

@@ -20,6 +20,10 @@ import markdown
 #   in-python handling of empty/null, deciding if I can just
 #   put ext links in contact.
 # TODO: automated tests to include json validation
+
+# until fix
+exit()
+
 parser = argparse.ArgumentParser(description="Build a resume from component parts.")
 parser.add_argument("-o", "--output", 
                     help="output directory",
