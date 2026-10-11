@@ -1,12 +1,48 @@
 from pathlib import Path
 import json
 
+# TODO: Shared templates loaded, instead of having them reloaded each time.
+#       Especially for things that won't have odd templates (ie all project cards)
+# TODO: Instead of print(warning), do it properly, lol
+
 # Going for that absolute.
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
 TEMPLATE_DIR = ROOT / "templates"
 
 page_data = DATA_DIR.glob("*.json")
+
+
+def insert_project_cards(project_list):
+    final_info = ""
+
+    for project in project_list:
+        final_info += generate_project_card(project)
+        final_info += "\n"
+
+    return final_info
+
+
+def generate_project_card(project_name):
+    file_path = DATA_DIR / f'projects/{project_name}.json'
+    if not file_path.exists():
+        print(f'WARNING: No such project data ({project_name})')
+        return ""
+
+    project_data = json.loads(file_path.read_text(encoding='utf-8'))
+    fill_fields = ['project_name', 'project_description', 'project_page_url', 'technologies']
+    
+    template = (
+        (TEMPLATE_DIR / project_data['card_template'])
+        .read_text(encoding='utf-8')
+    )
+
+    # project_data['technologies'] = str(project_data[])
+    for field in fill_fields:
+        template = template.replace('{{' + field + '}}', str(project_data[field]))
+
+    return template
+
 
 for page in page_data:
     data = json.loads(page.read_text(encoding='utf-8'))
@@ -16,7 +52,6 @@ for page in page_data:
     # really handled apart from warnings/errors.
     destination = ROOT / data['destination']
     # ensure parent directory exists; probably not needed
-    print()
     destination.parent.mkdir(parents=True, exist_ok=True)
 
     base_template = (

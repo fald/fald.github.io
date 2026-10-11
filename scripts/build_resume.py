@@ -2,26 +2,19 @@ import argparse
 from pathlib import Path
 import markdown
 
-# TODO: split the fragment from the display page
-# TODO: and have some other way to select which version to display
-# TODO: On such pages, fill in necessary parts of the template.
-# TODO: Hide email from showing up and being scrapeable
-# TODO: Github Actions to auto-process
-# TODO: pdf version on github action
-# TODO: Private site, split public-facing from actual repo
+# TODO: UAE photo, nationality, relocation
 # TODO: Also, endless scroll? This todo shouldn't be here, but.
 # TODO: Linkedin, Github profile updates
 # TODO: Include Itch.io at some point
-# TODO: refactor resume/scripts to /scripts
-# TODO: git, linkedin, vibe-git links for aside
 # TODO: PDF
+# TODO: Index template is messed up
 # TODO: Github align
 # TODO: Light/dark mode
-# TODO: handle asides better; aside tag in the sub-template,
-#   in-python handling of empty/null, deciding if I can just
-#   put ext links in contact.
 # TODO: Aria stuff across more pages - currently only partially in contact.html
 # TODO: automated tests to include json validation
+# TODO: project card feels a bit lacking?
+# TODO: how about building your scripts right, nerd? if __name__ == "__main__", proper hygeine...
+# TODO: fix/implement comments - projects and index templates, specifically, but go through all
 
 # until fix
 exit()
