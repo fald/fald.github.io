@@ -3,8 +3,13 @@
     "base_template": "base.html",
     "css": "main.css",
     "meta_title": "Firas Aldabbas | Projects",
-    "meta_description": "",
+    "meta_description": "A small collection of Firas' applied data science, machine learning, and AI projects covering analytics, data engineering, and renewable energy.",
     "main_content_src": "projects.html",
-    "projects": [],
+    "projects": [
+        "solar-analysis",
+        "financial-analysis",
+        "data-pipeline",
+        "web-application"
+    ],
     "aside_content_src": ""
 }
