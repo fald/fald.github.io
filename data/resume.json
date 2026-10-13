@@ -4,6 +4,6 @@
     "css": "main.css",
     "meta_title": "Firas Aldabbas | Resume",
     "meta_description": "Resume of Firas Aldabbas, a computer science graduate with experience in AI model evaluation, data analysis, software development, and online education. Skills in Python, SQL, machine learning, and data science.",
-    "main_content_src": "resume.html",
+    "main_content_src": "../resume/outputs/base/Firas-Aldabbas.html",
     "aside_content_src": "sidebar.html"
 }

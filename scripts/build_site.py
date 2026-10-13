@@ -106,6 +106,3 @@ for page in page_data:
         )
 
     destination.write_text(base_template, encoding='utf-8')
-
-    break
-

@@ -3,6 +3,10 @@ from pathlib import Path
 import markdown
 
 # TODO: UAE photo, nationality, relocation
+# TODO: Remove name when displaying within page
+# TODO: Move aside button somewhere less prominent.
+# TODO: Make html links actually links
+# TODO: Check, combine, remove redundancies for CSS
 # TODO: Also, endless scroll? This todo shouldn't be here, but.
 # TODO: Linkedin, Github profile updates
 # TODO: Include Itch.io at some point
