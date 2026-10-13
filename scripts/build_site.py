@@ -4,6 +4,8 @@ import json
 # TODO: Shared templates loaded, instead of having them reloaded each time.
 #       Especially for things that won't have odd templates (ie all project cards)
 # TODO: Instead of print(warning), do it properly, lol
+# TODO: Project card CSS (After build_resume is done)
+# TODO: Everything (but resume) uses main.css, remove it from the filling, just place in template
 
 # Going for that absolute.
 ROOT = Path(__file__).resolve().parent.parent
@@ -95,6 +97,13 @@ for page in page_data:
     # lame, but works
     if not aside_content:
         base_template = base_template.replace('class="content-with-aside"', "")
+
+    # Projects
+    if 'projects' in data:
+        base_template = (
+            base_template.
+            replace('{{project_cards}}', insert_project_cards(data['projects']))
+        )
 
     destination.write_text(base_template, encoding='utf-8')
 

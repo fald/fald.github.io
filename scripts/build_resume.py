@@ -16,45 +16,19 @@ import markdown
 # TODO: how about building your scripts right, nerd? if __name__ == "__main__", proper hygeine...
 # TODO: fix/implement comments - projects and index templates, specifically, but go through all
 
-# until fix
-exit()
+ROOT = Path(__file__).resolve().parent.parent
+RESUME_DIR = ROOT / 'resume'
+SECTION_DIR = RESUME_DIR / 'sections'
+OUTPUT_DIR = RESUME_DIR / 'outputs'
+TEMPLATE_DIR = ROOT / 'templates'
 
-parser = argparse.ArgumentParser(description="Build a resume from component parts.")
-parser.add_argument("-o", "--output", 
-                    help="output directory",
-                    default=Path("../outputs"),
-                    metavar="PATH",
-                    type=Path
-                    )
+NAME = "Firas-Aldabbas"
+PROFILES = ('base', 'adgm')
 
-parser.add_argument("-f", "--format",
-                    help="output format(s)",
-                    # pdf is such a goddamn pain
-                    default=['md', 'html'],
-                    choices=['md', 'html'],
-                    nargs='+'
-                    )
-
-parser.add_argument("-p", "--profile",
-                    help="profile variant",
-                    default="base",
-                    # TODO: probably just remove choices
-                    choices=['base', 'adgm', 'ai', 'fintech', 'consulting']
-                    # sections with filename ending in _<profile>,
-                    # except for base, get used; experience_ai.md, for ex.
-                    # should give feedback for which sections
-                    # to ensure no surprise missed
-                    )
-
-# parser.add_argument("--sections",
-#                     help="section overrides",
-#                     default=None,
-#                     metavar="FILE",
-#                     nargs='+')
-
-args = parser.parse_args()
-
-sections = [
+# Kinda gotta do it this way to simplify 
+# not including variants because of how I
+# structured it; ie, non-optimally.
+sections = (
     'header',
     'summary',
     'skills',
@@ -62,88 +36,78 @@ sections = [
     'projects',
     'experience',
     'education'
-]
+)
 
-# ---
+# This was all a massive waste.
+# I will always build the md as a way towards the html
+# The html will always be built on the way to the pdf
+# The only maybe is for variants, I guess.
+
+# parser = argparse.ArgumentParser(description="Build a resume from component parts.")
+# parser.add_argument("-o", "--output", 
+                    # help="output directory",
+                    # default=OUTPUT_DIR,
+                    # metavar="PATH",
+                    # type=Path
+                    # )
+
+# parser.add_argument("-f", "--format",
+#                     help="output format(s)",
+#                     # pdf is such a goddamn pain
+#                     default=['md', 'html'],
+#                     choices=['md', 'html'],
+#                     nargs='+'
+#                     )
+
+# parser.add_argument("-p", "--profile",
+#                     help="profile variant",
+#                     default="base",
+                    # choices=['base', 'adgm', 'ai', 'fintech', 'consulting']
+                    # sections with filename ending in _<profile>,
+                    # except for base, get used; experience_ai.md, for ex.
+                    # should give feedback for which sections
+                    # to ensure no surprise missed
+                    # )
+
+# parser.add_argument("--sections",
+#                     help="section overrides",
+#                     default=None,
+#                     metavar="FILE",
+#                     nargs='+')
+
+# args = parser.parse_args()
+
+
 # PROFILE
-# ---
-section_dir = Path('../sections')
+for profile in PROFILES:
+    postfix = f'_{profile}' if profile != 'base' else ''
 
-# if args.profile != 'base':
-postfix = f'_{args.profile}' if args.profile != 'base' else ''
+    content = []
 
+    for section in sections:
+        path = SECTION_DIR / f'{section}.md'
+        if postfix:
+            profile_path = SECTION_DIR / f'{section}{postfix}.md'
+            if profile_path.exists():
+                path = profile_path
+            else:
+                print(f'WARNING: no {profile} variant for {section}. Falling back to default.')
 
-# could probably interleave with file opening
-# but then have to deal with format choices etc
-# so nah
-content = []
+        if not path.exists():
+            print(f'WARNING: missing section: {section}')
+            continue
 
-for section in sections:
-    path = section_dir / f'{section}.md'
-    if postfix:
-        profile_path = section_dir / f'{section}{postfix}.md'
-        if profile_path.exists():
-            path = profile_path
-        else:
-            print(f'WARNING: no {args.profile} variant for {section}. Falling back to default.')
+        content.append(path.read_text(encoding='utf-8'))
 
-    if not path.exists():
-        print(f'WARNING: missing section: {section}')
-        continue
+    # FORMAT
+    md = '\n\n'.join(content)
+    html = markdown.markdown(md)
 
-    # with open(path, 'r') as f:
-    #     content.append(f.read())
-    # Smoother.
-    content.append(path.read_text(encoding='utf-8'))
+    # OUTPUT 
+    # ensure directory exists
+    output = OUTPUT_DIR / profile
+    output.mkdir(parents=True, exist_ok=True)
 
-
-# lol overkill, I know my own name and no one else is
-# gonna use this.
-name = content[0][2:content[0].index('\n')].replace(' ', '-')
-
-
-# ---
-# FORMAT
-# ---
-# This is intermediate to html, so it'll always happen
-md = '\n\n'.join(content)
-
-if 'html' in args.format:
-    fragment = markdown.markdown(md)
-    description = ""
-    p_title = ""
-    title = ""
-    stylesheet = "/assets/css/resume.css"
-    button = """<aside><a class="download-button" href="resume.pdf" download>
-    Download PDF
-</a></aside><main>"""
-
-    # TODO: Split the fragment from the page lol
-    html = Path('../../templates/base.html').read_text(encoding='utf-8')
-    # Infomercial voice: There's gotta be a better way! (There are several)
-    html = (
-        html
-        .replace('/assets/css/main.css', stylesheet)
-        .replace('{{PAGE DESCRIPTION}}', description)
-        .replace('{{PAGE TITLE}}', p_title)
-        .replace('{{MAIN TITLE}}', title)
-        .replace('{{PAGE CONTENT}}', fragment)
-        .replace('<main>', button)
-        )
-
-
-
-# ---
-# OUTPUT 
-# ---
-# ensure directory exists
-output = args.output / args.profile
-output.mkdir(parents=True, exist_ok=True)
-
-# within folder, place the file(s)
-if 'md' in args.format:
-    # with open(output) # nope, Path has its own thing
-    (output / f'{name}.md').write_text(md, encoding='utf-8')
-
-if 'html' in args.format:
-    (output / f'{name}.html').write_text(html, encoding='utf-8')
+    # within folder, place the file(s)
+    (output / f'{NAME}.md').write_text(md, encoding='utf-8')
+    (output / f'{NAME}.html').write_text(html, encoding='utf-8')
