@@ -1,7 +1,5 @@
 {
     "destination": "contact.html",
-    "base_template": "base.html",
-    "css": "main.css",
     "meta_title": "Firas Aldabbas | Contact",
     "meta_description": "Contact Firas Aldabbas regarding profesional opportunities, projects, and collaboration.",
     "main_content_src": "contact.html",
