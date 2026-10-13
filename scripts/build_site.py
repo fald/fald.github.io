@@ -87,6 +87,17 @@ for page in page_data:
     if not aside_content:
         curr_page = curr_page.replace('class="content-with-aside"', "")
 
+    # Resume modifications for web display; lame, but works, again
+    # TODO: Add download button when pdf is made
+    if page['destination'].contains('resume/index.html'):
+        mbox_svg = """<object class="mbox contact-item" width="180" height="24" data="/assets/images/mbox.svg" type="image/svg+xml"></object>"""
+        curr_page = (curr_page
+                     # name's already on site header
+                     .replace("<h1>Firas Aldabbas</h1>", "")
+                     # don't want plaintext email
+                     .replace("firas.aldabbas@gmail.com", mbox_svg)
+                     )
+
     # Projects
     if 'projects' in data:
         curr_page = (
