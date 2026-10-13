@@ -5,7 +5,6 @@ import json
 #       Especially for things that won't have odd templates (ie all project cards)
 # TODO: Instead of print(warning), do it properly, lol
 # TODO: Project card CSS (After build_resume is done)
-# TODO: Everything (but resume) uses main.css, remove it from the filling, just place in template
 
 # Going for that absolute.
 ROOT = Path(__file__).resolve().parent.parent
@@ -13,6 +12,7 @@ DATA_DIR = ROOT / "data"
 TEMPLATE_DIR = ROOT / "templates"
 
 page_data = DATA_DIR.glob("*.json")
+base_template = (TEMPLATE_DIR / 'base.html').read_text(encoding='utf-8')
 
 
 def insert_project_cards(project_list):
@@ -34,10 +34,7 @@ def generate_project_card(project_name):
     project_data = json.loads(file_path.read_text(encoding='utf-8'))
     fill_fields = ['project_name', 'project_description', 'project_page_url', 'technologies']
     
-    template = (
-        (TEMPLATE_DIR / project_data['card_template'])
-        .read_text(encoding='utf-8')
-    )
+    template = (TEMPLATE_DIR / 'project_card.html').read_text(encoding='utf-8')
 
     # project_data['technologies'] = str(project_data[])
     for field in fill_fields:
@@ -55,14 +52,8 @@ for page in page_data:
     destination = ROOT / data['destination']
     # ensure parent directory exists; probably not needed
     destination.parent.mkdir(parents=True, exist_ok=True)
-
-    base_template = (
-        (TEMPLATE_DIR / data['base_template'])
-        .read_text(encoding='utf-8')
-    )
     
     # file meta info
-    css = data['css']
     meta_title = data['meta_title']
     meta_description = data['meta_description']
 
@@ -84,25 +75,23 @@ for page in page_data:
     # lol probably should've just stuck with a loop, oh well
     # it ain't even imposter syndrome at this point, I'm just
     # bad :P
-    base_template = (
+    curr_page = (
         base_template
-        .replace("{{css}}", css)
         .replace("{{meta_title}}", meta_title)
         .replace("{{meta_description}}", meta_description)
-        # .replace("{{page_title}}", page_title)
         .replace("{{main_content}}", main_content)
         .replace("{{aside_content}}", aside_content)
     )
 
     # lame, but works
     if not aside_content:
-        base_template = base_template.replace('class="content-with-aside"', "")
+        curr_page = curr_page.replace('class="content-with-aside"', "")
 
     # Projects
     if 'projects' in data:
-        base_template = (
-            base_template.
+        curr_page = (
+            curr_page.
             replace('{{project_cards}}', insert_project_cards(data['projects']))
         )
 
-    destination.write_text(base_template, encoding='utf-8')
+    destination.write_text(curr_page, encoding='utf-8')
