@@ -3,6 +3,7 @@ from pathlib import Path
 import markdown
 
 # TODO: UAE photo, nationality, relocation
+# TODO: Strip comments from, and act on, comments from adgm mds
 # TODO: Remove name when displaying within page
 # TODO: Move aside button somewhere less prominent.
 # TODO: Make html links actually links
@@ -19,6 +20,7 @@ import markdown
 # TODO: project card feels a bit lacking?
 # TODO: how about building your scripts right, nerd? if __name__ == "__main__", proper hygeine...
 # TODO: fix/implement comments - projects and index templates, specifically, but go through all
+# TODO: (later) - links to find elsewhere; vibe coding git page, 'other stuff' (tech, non-tech)
 
 ROOT = Path(__file__).resolve().parent.parent
 RESUME_DIR = ROOT / 'resume'

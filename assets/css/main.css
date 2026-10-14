@@ -330,7 +330,7 @@ footer {
 
 object.mbox {
     height: 2em;
-    margin: -1em 0;
+    /* margin: -1em 0; */
     vertical-align: middle;
 }
 
@@ -350,7 +350,7 @@ object.mbox {
     align-items: center;
     gap: 12px;
     text-decoration: none;
-    outline: 1px dotted;
+    /* outline: 1px dotted; */
     padding: 2px;
     width: 180px;
 }

@@ -69,6 +69,7 @@ def generate_project_card(project_name):
     for field in fill_fields:
         if field == 'technologies':
             # template = template.replace('{{' + field + '}}', " | ".join(project_data[field]))
+            # TODO: Best to just drop this from fill_fields and do it separately; padding: 0 for the ul css though
             tags = '<ul class="project-tags">' + "".join(f'<li class="project-tag">{t}</li>' for t in project_data[field]) + '</ul>'
             template = template.replace('{{' + field + '}}', tags)
         else:

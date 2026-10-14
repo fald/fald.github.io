@@ -1,7 +1,7 @@
 {
     "destination": "resume/index.html",
     "meta_title": "Resume | Firas Aldabbas: Data Analyst (Python, SQL)",
-    "meta_description": "Resume of Firas Aldabbas, BSc Computer Science (Toronto), MSc Data Science (Colorado), LLM evaluation, Python automation, solar-data analysis.",
+    "meta_description": "Resume of Firas Aldabbas, BSc Computer Science (University of Toronto), MSc Data Science (University of Colorado), LLM evaluation, Python automation, solar-data analysis.",
     "main_content_src": "../resume/outputs/base/Firas-Aldabbas.html",
     "aside_content_src": ""
 }
