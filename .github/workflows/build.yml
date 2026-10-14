@@ -129,9 +129,10 @@ jobs:
           test -f _site/assets/images/favicon.ico
           test -f _site/assets/files/Firas-Aldabbas.pdf
           # Loose template placeholders
-          ! grep -rn --include='*.html' '{{' _site
+          # Annoyingly, might have to tweak it a bit because of possible pipeline issues? I dunno.
+          grep -rn --include='*.html' '{{' _site && exit 1 || true
           # Empty images
-          ! grep -rn --include='*.html' 'src=""' _site
+          grep -rn --include='*.html' 'src=""' _site && exit 1 || true
           # Drafting comments? Don't know a good way that doesn't also exclude regular comments, so skip. Manual.
 
       # Internal links, images/stylesheets.
