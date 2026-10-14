@@ -1,6 +1,7 @@
 from pathlib import Path
 import json
 
+# TODO: Project card displays technologies as list structure, style it up.
 # TODO: Shared templates loaded, instead of having them reloaded each time.
 #       Especially for things that won't have odd templates (ie all project cards)
 # TODO: Instead of print(warning), do it properly, lol
