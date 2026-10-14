@@ -6,6 +6,7 @@ import json
 # TODO: Resume contact link - padding? separate lines so the image doesn't overlap with next line
 #       pref via CSS to not do any more in-html fiddling.
 # TODO: Clear up HTML comments/drafts
+# TODO: Add local copy generates to .gitignore, no need to double-up the pages.
 # TODO: This would've been simplified if I read he markdown docs:
 #       Resume URLs aren’t links. The markdown library doesn’t autolink bare URLs. Write <https://github.com/fald> or [GitHub](https://github.com/fald) in header.md
 # TODO: Structured data; JSON-LD block to base.html for Person (name, job title, sameAs, URL) - used by search engines?
