@@ -2,6 +2,7 @@ from pathlib import Path
 import json
 
 # TODO: Profile image
+# TODO: skills: scikit-learn, ETL/data-pipelines, time-series forecasting
 # TODO: Resume contact link - padding? separate lines so the image doesn't overlap with next line
 #       pref via CSS to not do any more in-html fiddling.
 # TODO: Structured data; JSON-LD block to base.html for Person (name, job title, sameAs, URL) - used by search engines?
@@ -107,7 +108,7 @@ for page in page_data:
     if 'resume/index.html' in data['destination']:
         mbox_svg =  """<object class="mbox contact-item" width="180" height="24" data="/assets/images/mbox.svg" type="image/svg+xml"></object>"""
         linkedin =  """https://www.linkedin.com/in/firas-aldabbas/"""
-        github =    """https://www.github.com/fald"""
+        github =    """https://github.com/fald"""
         portfolio = """https://fald.github.io"""
 
         curr_page = (curr_page
