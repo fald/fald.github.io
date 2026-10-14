@@ -4,7 +4,7 @@
 firas.aldabbas@gmail.com  | Ontario, Canada  
 Linkedin:   https://www.linkedin.com/in/firas-aldabbas/  
 Github:     https://www.github.com/fald  
-Portfolio:  https://www.fald.github.io  
+Portfolio:  https://fald.github.io  
 
 ## PROFESSIONAL SUMMARY
 
@@ -73,7 +73,7 @@ Python-focused data and technology professional with a background in computer sc
 ## EDUCATION
 
 **University of Colorado**  
-MSc. - Data Science (2027 - expected)  
+MSc. - Data Science  (Expected 2027)
 
 **University of Toronto**  
-BSc. - Computer Science (2014)
+BSc. - Computer Science (2024)
