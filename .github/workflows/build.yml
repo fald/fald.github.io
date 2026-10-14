@@ -1,16 +1,69 @@
 name: Build and Deploy Portfolio
 
-on: [push, workflow_dispatch] # alt branches, pull requests will never come up
-  # push: 
-    # branches: [master]
-  # pull_request: # will probably never come up
-    # branches: [master]
-  # workflow_dispatch:
+# Even though most of this won't come up, good hygeine.
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+# concurrency is probably also good hygeine, but there are 
+# limits to how inefficient I want to be for the sake of 
+# completion lol
 
 permissions:
   contents: read
 
 jobs:
+  # let's separate tests out, though
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.14"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt pytest
+
+      # Very basic builtin validation
+      # nullglob: expansion patterns that don't match are removed
+      - name: Validate JSON
+        run: |
+          shopt -s nullglob
+          for f in data/*.json data/projects/*.json; do
+            echo "checking $f"
+            python -m json.tool "$f" > /dev/null
+          done
+
+      # Every project in data/projects.json should have a data file?
+      # TODO: Only later, for now, empty is fine. Also, own test file, probably
+      # - name: Check referenced project files exist
+      #   run: |
+          # python - <<'EOF'
+          # import json, pathlib, sys
+          # listed = json.loads(pathlib.Path("data/projects.json").read_text(encoding="utf-8"))["projects"]
+          # missing = [p for p in listed if not pathlib.Path(f"data/projects/{p}.json").exists()]
+          # if missing:
+          #     sys.exit(f"Missing project data files: {missing}")
+          # EOF
+
+      # TODO: Once unit tests are up
+      # - name: Run unit tests
+      #   if: ${{ hashFiles('tests/**/*.py') != ''}}
+      #   run: python -m pytest -q
+
+
   build:
     runs-on: ubuntu-latest
 
