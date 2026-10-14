@@ -66,6 +66,8 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    needs: test
+    timeout-minutes: 15 # frankly, timeouts should probably be way lower
 
     steps:
       - name: Check out repository
@@ -75,53 +77,83 @@ jobs:
         uses: actions/setup-python@v7
         with:
           python-version: "3.14"
+          cache: pip
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
 
+      - name: Cache Playwright
+        uses: actions/cache@v5
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}=${{ hashFiles('requirements.txt') }}
+        
       - name: Install Chromium
         run: python -m playwright install --with-deps chromium
 
-      - name: Build resume
-        run: |
-          python scripts/build_resume.py \
-          --profile base \
-          --format md html
+      - name: Build resume (Markdown, HTML)
+        run: python scripts/build_resume.py
 
-      - name: Build resume PDF
-        run: |
-          python scripts/build_resume_pdf.py
+      - name: Build resume (PDF)
+        run: python scripts/build_resume_pdf.py
 
+      # TODO: Include fail on warning? Or just look at
+      # the actions output?
       - name: Build website
-        run: |
-          python scripts/build_site.py
+        run: python scripts/build_site.py
 
-      # Should this be in a separate job?
-      - name: Validate build outputs
+
+      # Publish only necessary pages -
+      # Other stuff accessible from the public repo,
+      # but still.
+      # Might have been better to build the separate _site folder in build_site? Whatever.
+      - name: Assemble site
         run: |
-          test -f index.html
-          test -f contact.html
-          test -f resume/index.html
-          test -f projects/index.html
+          mkdir _site
+          cp index.html contact.html _site/
+          cp -r assets projects _site/
+          mkdir _site/resume
+          cp resume/index.html _site/resume
+
+
+      # Should this be in the test job?
+      # Also, test -all- expected files? (TODO: )
+      - name: Validate build output
+        run: |
+          test -f _site/index.html
+          test -f _site/contact.html
+          test -f _site/resume/index.html
+          test -f _site/projects/index.html
+          test -f _site/assets/css/main.css
+          test -f _site/assets/images/favicon.ico
+          test -f _site/assets/files/Firas-Aldabbas.pdf
+          # Loose template placeholders
+          ! grep -rn --include='*.html' '{{' _site
+          # Empty images
+          ! grep -rn --include='*.html' 'src=""' _site
+          # Drafting comments? Don't know a good way that doesn't also exclude regular comments, so skip. Manual.
+
+      # Internal links, images/stylesheets.
+      # Can't find a standard action, don't wanna use whatever lychee is, so...manual.
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
         with: 
-          # TODO: Limit this to not include scripts, data, templates, requirements, etc.
-          path: .
-
-
-  # test:
+          path: _site
 
 
   deploy:
+    # Don't deploy from PR - as noted above, I don't foresee this mattering
+    if: ${{ github.event_name != 'pull_request' }}
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
 
     permissions:
       pages: write
