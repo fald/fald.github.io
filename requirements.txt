@@ -1,2 +1,2 @@
-markdown
-playwright
+markdown==3.11
+playwright==1.63
