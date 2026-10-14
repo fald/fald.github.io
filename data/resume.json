@@ -1,7 +1,7 @@
 {
     "destination": "resume/index.html",
-    "meta_title": "Firas Aldabbas | Resume",
-    "meta_description": "Resume of Firas Aldabbas, a computer science graduate with experience in AI model evaluation, data analysis, software development, and online education. Skills in Python, SQL, machine learning, and data science.",
+    "meta_title": "Resume | Firas Aldabbas: Data Analyst (Python, SQL)",
+    "meta_description": "Resume of Firas Aldabbas, BSc Computer Science (Toronto), MSc Data Science (Colorado), LLM evaluation, Python automation, solar-data analysis.",
     "main_content_src": "../resume/outputs/base/Firas-Aldabbas.html",
     "aside_content_src": ""
 }

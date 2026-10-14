@@ -1,6 +1,10 @@
 from pathlib import Path
 import json
 
+# TODO: Profile image
+# TODO: Resume contact link - padding? separate lines so the image doesn't overlap with next line
+#       pref via CSS to not do any more in-html fiddling.
+# TODO: Structured data; JSON-LD block to base.html for Person (name, job title, sameAs, URL) - used by search engines?
 # TODO: Project card displays technologies as list structure, style it up.
 # TODO: Shared templates loaded, instead of having them reloaded each time.
 #       Especially for things that won't have odd templates (ie all project cards)
@@ -13,6 +17,7 @@ import json
 # TODO: Dark mode, possible print stylesheet, skip links (overkill w. small site)?
 # TODO: populate README
 # TODO: Social sharing (eugh. But...networking.) OpenGraph, Twitter??? tags, canonical links (?)
+#       <link rel="canonical">, opengraph tags (og:title, description, and image)
 # TODO: robots.txt, sitemap
 
 

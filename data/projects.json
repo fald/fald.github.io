@@ -1,7 +1,7 @@
 {
     "destination": "projects/index.html",
-    "meta_title": "Firas Aldabbas | Projects",
-    "meta_description": "A small collection of Firas' applied data science, machine learning, and AI projects covering analytics, data engineering, and renewable energy.",
+    "meta_title": "Projects | Firas Aldabbas",
+    "meta_description": "Data science and machine learning projects by Firas Aldabbas, with code and write-ups.",
     "main_content_src": "projects.html",
     "projects": [
         "solar-analysis",
