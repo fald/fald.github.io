@@ -1,6 +1,7 @@
 /*
     In case it matters, apart from this comment,
     this entire file is just AI generated.
+    Well, mostly, minor tweaks here and there by me.
     God, I hate CSS.
 */
 
@@ -55,12 +56,6 @@ a {
     text-decoration: none;
 }
 
-/* Tables */
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
 /* Print */
 @media print {
     body {
@@ -96,11 +91,6 @@ table {
 
     h2 {
         font-size: 13pt;
-    }
-
-    .experience-header {
-        flex-direction: column;
-        gap: 0;
     }
 }
 

@@ -1,6 +1,0 @@
-{
-    "project_name": "Solar Analysis",
-    "project_description": "Solar Analysis - Read panel data.",
-    "technologies": ["Python", "SQL", "ArcGIS"],
-    "project_page_url": "https://fald.github.io/"
-}
