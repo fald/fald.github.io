@@ -2,12 +2,7 @@
     Same as resume.css, this file is (almost, but not quite, entirely) 
     LLM-generated because I hate CSS so much.
     It is not checked, verified, or demonstrative of my own
-    capacity to do CSS.
-*/
-
-/*
-    General portfolio site styles.
-    Keep the visual language broadly consistent with the resume.
+    capacity to do CSS, which is nil.
 */
 
 /* ---------- Page ---------- */
@@ -78,6 +73,22 @@ aside:empty {
 }
 
 /* ---------- Headings ---------- */
+
+header {
+    position: relative;
+}
+
+header img {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+}
 
 h1 {
     font-size: 28pt;
@@ -280,6 +291,10 @@ footer {
     body {
         padding: 0 18px;
         font-size: 10.5pt;
+    }
+
+    header img {
+        display: none;
     }
 
     nav {
