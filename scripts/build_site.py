@@ -5,6 +5,11 @@ import json
 #       Especially for things that won't have odd templates (ie all project cards)
 # TODO: Instead of print(warning), do it properly, lol
 # TODO: Project card CSS (After build_resume is done)
+# TODO: CSS rem instead of pt, better scaling
+# TODO: CSS: possibly change contact css; clear up the dead elements
+# TODO: aria-labels on nav
+# TODO: aria-current on active page
+# TODO: Dark mode, possible print stylesheet, skip links (overkill w. small site)?
 
 # Going for that absolute.
 ROOT = Path(__file__).resolve().parent.parent

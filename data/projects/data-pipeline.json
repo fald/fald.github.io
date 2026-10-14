@@ -1,0 +1,6 @@
+{
+    "project_name": "Data Pipeline",
+    "project_description": "Piping that data",
+    "technologies": ["Go", "R", "SQL"],
+    "project_page_url": "https://fald.github.io/"
+}
