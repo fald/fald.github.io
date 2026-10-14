@@ -1,7 +1,7 @@
 ## EDUCATION
 
 **University of Colorado**  
-MSc. - Data Science (2027 - expected)  
+MSc. - Data Science  (Expected 2027)
 
 **University of Toronto**  
-BSc. - Computer Science (2014)
+BSc. - Computer Science (2024)
