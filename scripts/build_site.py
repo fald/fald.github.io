@@ -98,7 +98,7 @@ for page in page_data:
 
     # Resume modifications for web display; lame, but works, again
     # TODO: Add download button when pdf is made
-    if data['destination'].contains('resume/index.html'):
+    if 'resume/index.html' in data['destination']:
         mbox_svg =  """<object class="mbox contact-item" width="180" height="24" data="/assets/images/mbox.svg" type="image/svg+xml"></object>"""
         linkedin =  """https://www.linkedin.com/in/firas-aldabbas/"""
         github =    """https://www.github.com/fald"""
