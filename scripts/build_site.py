@@ -67,7 +67,7 @@ def generate_project_card(project_name):
 
     # project_data['technologies'] = str(project_data[])
     for field in fill_fields:
-        template = template.replace('{{' + field + '}}', str(project_data[field]))
+        template = template.replace('{{' + field + '}}', " | ".join(project_data[field]))
 
     return template
 
