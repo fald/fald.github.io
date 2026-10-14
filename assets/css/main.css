@@ -159,17 +159,23 @@ a:hover {
     margin-top: auto;
 }
 
+.project-card .technologies {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    color: #555;
+}
+
 .project-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
+    list-style-type: none;
 }
 
 .project-tag {
     padding: 3px 7px;
     border: 1px solid #bbb;
     border-radius: 3px;
-    font-size: 9pt;
 }
 
 #projects {
@@ -201,12 +207,6 @@ a:hover {
 
 .project-card p {
     line-height: 1.5;
-}
-
-.project-card .technologies {
-    margin-bottom: 0;
-    font-size: 0.9rem;
-    color: #555;
 }
 
 
