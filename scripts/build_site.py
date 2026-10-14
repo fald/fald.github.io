@@ -5,6 +5,9 @@ import json
 # TODO: skills: scikit-learn, ETL/data-pipelines, time-series forecasting
 # TODO: Resume contact link - padding? separate lines so the image doesn't overlap with next line
 #       pref via CSS to not do any more in-html fiddling.
+# TODO: Clear up HTML comments/drafts
+# TODO: This would've been simplified if I read he markdown docs:
+#       Resume URLs aren’t links. The markdown library doesn’t autolink bare URLs. Write <https://github.com/fald> or [GitHub](https://github.com/fald) in header.md
 # TODO: Structured data; JSON-LD block to base.html for Person (name, job title, sameAs, URL) - used by search engines?
 # TODO: Project card displays technologies as list structure, style it up.
 # TODO: Shared templates loaded, instead of having them reloaded each time.
@@ -20,6 +23,15 @@ import json
 # TODO: Social sharing (eugh. But...networking.) OpenGraph, Twitter??? tags, canonical links (?)
 #       <link rel="canonical">, opengraph tags (og:title, description, and image)
 # TODO: robots.txt, sitemap
+# TODO: Use logging instead of print warning
+# TODO: Wrap stuff in functions
+# TODO: Major simplification
+# TODO: Strip comments in the build with re.sub(r"<!--.*?-->", "", md, flags=re.S)
+# TODO: Safe to kill resume.css?
+# TODO: Tests; test folder, check json schema, required keys, 1 h1 tag, images have alts,
+#       titles under 60 char, unique, descriptions under 160, no stray {{...}}...
+# TODO: As part of simplification, just bite the bullet, undo all the work, and use Jinja2 lmfao.
+# TODO: Add to ongoing project check
 
 
 # Going for that absolute.
