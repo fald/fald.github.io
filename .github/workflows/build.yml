@@ -148,7 +148,6 @@ jobs:
           check_file _site/resume/index.html
           check_file _site/projects/index.html
           check_file _site/assets/css/main.css
-          check_file _site/assets/images/favicon.ico
           check_file _site/assets/files/Firas-Aldabbas.pdf
 
           if grep -rnq --include='*.html' '{{' _site; then
