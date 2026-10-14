@@ -111,10 +111,9 @@ jobs:
       # Might have been better to build the separate _site folder in build_site? Whatever.
       - name: Assemble site
         run: |
-          mkdir _site
+          mkdir -p _site/resume
           cp index.html contact.html _site/
           cp -r assets projects _site/
-          mkdir _site/resume
           cp resume/index.html _site/resume
 
 
