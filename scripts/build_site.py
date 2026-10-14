@@ -10,6 +10,10 @@ import json
 # TODO: aria-labels on nav
 # TODO: aria-current on active page
 # TODO: Dark mode, possible print stylesheet, skip links (overkill w. small site)?
+# TODO: populate README
+# TODO: Social sharing (eugh. But...networking.) OpenGraph, Twitter??? tags, canonical links (?)
+# TODO: robots.txt, sitemap
+
 
 # Going for that absolute.
 ROOT = Path(__file__).resolve().parent.parent
@@ -95,12 +99,21 @@ for page in page_data:
     # Resume modifications for web display; lame, but works, again
     # TODO: Add download button when pdf is made
     if page['destination'].contains('resume/index.html'):
-        mbox_svg = """<object class="mbox contact-item" width="180" height="24" data="/assets/images/mbox.svg" type="image/svg+xml"></object>"""
+        mbox_svg =  """<object class="mbox contact-item" width="180" height="24" data="/assets/images/mbox.svg" type="image/svg+xml"></object>"""
+        linkedin =  """https://www.linkedin.com/in/firas-aldabbas/"""
+        github =    """https://www.github.com/fald"""
+        portfolio = """https://fald.github.io"""
+
         curr_page = (curr_page
                      # name's already on site header
                      .replace("<h1>Firas Aldabbas</h1>", "")
                      # don't want plaintext email
                      .replace("firas.aldabbas@gmail.com", mbox_svg)
+                     # make the links clickable.
+                     # TODO: shoulda just make a function for this
+                     .replace(linkedin, f'<a href="{linkedin}">{linkedin}</a>') 
+                     .replace(github, f'<a href="{github}">{github}</a>')
+                     .replace(portfolio, f'<a href="{portfolio}">{portfolio}</a>')
                      )
 
     # Projects
