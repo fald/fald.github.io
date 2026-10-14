@@ -1,7 +1,7 @@
 from pathlib import Path
 import json
 
-# TODO: Profile image
+# TODO: Profile image, alignment, round; make it fit.
 # TODO: skills: scikit-learn, ETL/data-pipelines, time-series forecasting
 # TODO: Resume contact link - padding? separate lines so the image doesn't overlap with next line
 #       pref via CSS to not do any more in-html fiddling.
