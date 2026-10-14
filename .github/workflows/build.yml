@@ -104,7 +104,6 @@ jobs:
       - name: Build website
         run: python scripts/build_site.py
 
-
       # Publish only necessary pages -
       # Other stuff accessible from the public repo,
       # but still.
@@ -116,24 +115,53 @@ jobs:
           cp -r assets projects _site/
           cp resume/index.html _site/resume
 
-
-      # Should this be in the test job?
       # Also, test -all- expected files? (TODO: )
+      # - name: Validate build output
+      #   run: |
+      #     test -f _site/index.html
+      #     test -f _site/contact.html
+      #     test -f _site/resume/index.html
+      #     test -f _site/projects/index.html
+      #     test -f _site/assets/css/main.css
+      #     test -f _site/assets/images/favicon.ico
+      #     test -f _site/assets/files/Firas-Aldabbas.pdf
+      #     # Loose template placeholders
+      #     # Annoyingly, might have to tweak it a bit because of possible pipeline issues? I dunno.
+      #     (! grep -rnq --include='*.html' '{{' _site)
+      #     # Empty images
+      #     (! grep -rnq --include='*.html' 'src=""' _site)
+      #     # Drafting comments? Don't know a good way that doesn't also exclude regular comments, so skip. Manual.
       - name: Validate build output
         run: |
-          test -f _site/index.html
-          test -f _site/contact.html
-          test -f _site/resume/index.html
-          test -f _site/projects/index.html
-          test -f _site/assets/css/main.css
-          test -f _site/assets/images/favicon.ico
-          test -f _site/assets/files/Firas-Aldabbas.pdf
-          # Loose template placeholders
-          # Annoyingly, might have to tweak it a bit because of possible pipeline issues? I dunno.
-          (! grep -rnq --include='*.html' '{{' _site)
-          # Empty images
-          (! grep -rnq --include='*.html' 'src=""' _site)
-          # Drafting comments? Don't know a good way that doesn't also exclude regular comments, so skip. Manual.
+          set -e
+
+          check_file() {
+            if [ ! -f "$1" ]; then
+              echo "::error::Missing expected file: $1"
+              exit 1
+            fi
+            echo "OK: $1"
+          }
+
+          check_file _site/index.html
+          check_file _site/contact.html
+          check_file _site/resume/index.html
+          check_file _site/projects/index.html
+          check_file _site/assets/css/main.css
+          check_file _site/assets/images/favicon.ico
+          check_file _site/assets/files/Firas-Aldabbas.pdf
+
+          if grep -rnq --include='*.html' '{{' _site; then
+            echo "::error::Unresolved template placeholder found in HTML"
+            grep -rn --include='*.html' '{{' _site
+            exit 1
+          fi
+
+          if grep -rnq --include='*.html' 'src=""' _site; then
+            echo "::error::Empty image src attribute found in HTML"
+            grep -rn --include='*.html' 'src=""' _site
+            exit 1
+          fi
 
       # Internal links, images/stylesheets.
       # Can't find a standard action, don't wanna use whatever lychee is, so...manual.
