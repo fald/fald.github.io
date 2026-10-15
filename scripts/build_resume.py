@@ -2,25 +2,9 @@ import argparse
 from pathlib import Path
 import markdown
 
-# TODO: UAE photo, nationality, relocation
-# TODO: Strip comments from, and act on, comments from adgm mds
-# TODO: Remove name when displaying within page
-# TODO: Move aside button somewhere less prominent.
-# TODO: Make html links actually links
-# TODO: Check, combine, remove redundancies for CSS
-# TODO: Also, endless scroll? This todo shouldn't be here, but.
-# TODO: Linkedin, Github profile updates
-# TODO: Include Itch.io at some point
-# TODO: PDF
-# TODO: Index template is messed up
-# TODO: Github align
-# TODO: Light/dark mode
-# TODO: Aria stuff across more pages - currently only partially in contact.html
-# TODO: automated tests to include json validation
-# TODO: project card feels a bit lacking?
-# TODO: how about building your scripts right, nerd? if __name__ == "__main__", proper hygeine...
-# TODO: fix/implement comments - projects and index templates, specifically, but go through all
-# TODO: (later) - links to find elsewhere; vibe coding git page, 'other stuff' (tech, non-tech)
+# TODO: UAE photo, nationality, relocation, adgm profuke
+# TODO: (cohesion) Linkedin, Github profile updates
+# TODO: (future) - links to find elsewhere; vibe coding git page, 'other stuff' (tech, non-tech), itch.io
 
 ROOT = Path(__file__).resolve().parent.parent
 RESUME_DIR = ROOT / 'resume'

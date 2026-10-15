@@ -10,8 +10,7 @@ GitHub Actions builds, assembles, and deploys to GitHub Pages.
 
 ## Steps
 
-- `build_resume.py` joins Markdown sections into one resume, allowing for multiple profiles. 
-- The script also provides an HTML version of the file.
+- `build_resume.py` joins Markdown sections into one resume, allowing for multiple profiles. Markdown and HTML formats.
 - `build_resume_pdf.py` then renders the HTML to a text-based PDF using Playwright.
 - `build_site.py` fills in templates with content and metadata from relevant JSON files.  
   

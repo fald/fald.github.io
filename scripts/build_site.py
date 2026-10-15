@@ -1,7 +1,7 @@
 from pathlib import Path
 import json
 
-# TODO: skills: scikit-learn, ETL/data-pipelines, time-series forecasting
+# TODO: (personal info) skills: scikit-learn, ETL/data-pipelines, time-series forecasting
 # TODO: (code quality) This would've been simplified if I read he markdown docs:
 #       Resume URLs aren’t links. The markdown library doesn’t autolink bare URLs. Write <https://github.com/fald> or [GitHub](https://github.com/fald) in header.md
 # TODO: (add-on) Structured data; JSON-LD block to base.html for Person (name, job title, sameAs, URL) - used by search engines?
