@@ -109,13 +109,16 @@ for page in page_data:
         curr_page = curr_page.replace('class="content-with-aside"', "")
 
     # Resume modifications for web display; lame, but works, again
-    # TODO: Add download button when pdf is made
     if 'resume/index.html' in data['destination']:
         mbox_svg =  """<object class="mbox contact-item" width="180" height="24" data="/assets/images/mbox.svg" type="image/svg+xml"></object>"""
         linkedin =  """https://www.linkedin.com/in/firas-aldabbas/"""
         github =    """https://github.com/fald"""
         portfolio = """https://fald.github.io"""
-
+        button = (
+             '<p><a class="button" href="/assets/files/Firas-Aldabbas.pdf" '
+             'download="Firas-Aldabbas-Resume.pdf" type="application/pdf">'
+             'Download resume (PDF)</a></p>')
+        
         curr_page = (curr_page
                      # name's already on site header
                      .replace("<h1>Firas Aldabbas</h1>", "")
@@ -126,6 +129,8 @@ for page in page_data:
                      .replace(linkedin, f'<a href="{linkedin}">{linkedin}</a>') 
                      .replace(github, f'<a href="{github}">{github}</a>')
                      .replace(portfolio, f'<a href="{portfolio}">{portfolio}</a>')
+                     # Download button; I guess obviously.
+                     .replace("<main>", "<main>\n" + button)
                      )
 
     # Projects
