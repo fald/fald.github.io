@@ -9,7 +9,7 @@ text {
 }
 </style>
 
-<text x="50%" y="50%">
+<text x="50%" y="50%" textLength="170" lengthAdjust="spacingAndGlyphs">
     firas.<!-- I'd be surprised -->aldabbas@<!-- if this worked -->gmail.com
 </text>
 
