@@ -1,9 +1,9 @@
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 
-# TODO: type hints etc for all code
-# TODO: Update all errors/warnings, too
-# TODO: Decide between this style and main page style
+# TODO: (code quality) type hints etc for all code
+# TODO: (code quality) Update all errors/warnings, too
+# TODO: (style) Decide between this style and main page style
 
 ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = ROOT / 'resume/outputs'
@@ -32,9 +32,7 @@ def build_page(page, profile: str) -> Path:
 
     html = base.replace("{{main_content}}", source.read_text(encoding='utf-8'))
 
-    # magic playwright stuff
-    # TODO: Look into this enough to actually understand it and not copy-paste
-    #       it does seem simple enough, but I doubt I could recreate it on the fly lol
+    # magic playwright stuff; note that setting content on blank page means relative links won't do squat.
     page.set_content(html, wait_until='load')
     page.emulate_media(media='print')
 

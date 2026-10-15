@@ -1,38 +1,24 @@
 from pathlib import Path
 import json
 
-# TODO: Profile image, alignment, round; make it fit.
 # TODO: skills: scikit-learn, ETL/data-pipelines, time-series forecasting
-# TODO: Resume contact link - padding? separate lines so the image doesn't overlap with next line
-#       pref via CSS to not do any more in-html fiddling.
-# TODO: Clear up HTML comments/drafts
-# TODO: Add local copy generates to .gitignore, no need to double-up the pages.
-# TODO: This would've been simplified if I read he markdown docs:
+# TODO: (code quality) This would've been simplified if I read he markdown docs:
 #       Resume URLs aren’t links. The markdown library doesn’t autolink bare URLs. Write <https://github.com/fald> or [GitHub](https://github.com/fald) in header.md
-# TODO: Structured data; JSON-LD block to base.html for Person (name, job title, sameAs, URL) - used by search engines?
-# TODO: Project card displays technologies as list structure, style it up.
-# TODO: Shared templates loaded, instead of having them reloaded each time.
-#       Especially for things that won't have odd templates (ie all project cards)
-# TODO: Instead of print(warning), do it properly, lol
-# TODO: Project card CSS (After build_resume is done)
-# TODO: CSS rem instead of pt, better scaling
-# TODO: CSS: possibly change contact css; clear up the dead elements
-# TODO: aria-labels on nav
-# TODO: aria-current on active page
-# TODO: Dark mode, possible print stylesheet, skip links (overkill w. small site)?
-# TODO: populate README
-# TODO: Social sharing (eugh. But...networking.) OpenGraph, Twitter??? tags, canonical links (?)
+# TODO: (add-on) Structured data; JSON-LD block to base.html for Person (name, job title, sameAs, URL) - used by search engines?
+# TODO: (code quality, test coverage) Instead of print(warning), do it properly, through logging
+# TODO: (code quality) CSS rem instead of pt, better scaling
+# TODO: (code quality) aria-labels on nav, aria-current on active page
+# TODO: (style) Dark mode, possible print stylesheet, skip links?
+# TODO: (networking) Social sharing (eugh. But...networking.) OpenGraph, Twitter??? tags, canonical links (?)
 #       <link rel="canonical">, opengraph tags (og:title, description, and image)
-# TODO: robots.txt, sitemap
-# TODO: Use logging instead of print warning
-# TODO: Wrap stuff in functions
-# TODO: Major simplification
-# TODO: Strip comments in the build with re.sub(r"<!--.*?-->", "", md, flags=re.S)
-# TODO: Safe to kill resume.css?
-# TODO: Tests; test folder, check json schema, required keys, 1 h1 tag, images have alts,
+# TODO: (code quality/completion) robots.txt, sitemap
+# TODO: (code quality) Wrap stuff in functions
+# TODO: (code quality) Major simplification
+# TODO: (style) Strip comments in the build with re.sub(r"<!--.*?-->", "", md, flags=re.S)
+# TODO: (test coverage) Tests; test folder, check json schema, required keys, 1 h1 tag, images have alts,
 #       titles under 60 char, unique, descriptions under 160, no stray {{...}}...
-# TODO: As part of simplification, just bite the bullet, undo all the work, and use Jinja2 lmfao.
-# TODO: Add to ongoing project check
+# TODO: (code quality) As part of simplification, just bite the bullet, undo all the work, and use Jinja2 lmfao.
+# TODO: (structure) content instead of template folder for...content.
 
 
 # Going for that absolute.
@@ -69,7 +55,7 @@ def generate_project_card(project_name):
     for field in fill_fields:
         if field == 'technologies':
             # template = template.replace('{{' + field + '}}', " | ".join(project_data[field]))
-            # TODO: Best to just drop this from fill_fields and do it separately; padding: 0 for the ul css though
+            # Best (?) to just drop this from fill_fields and do it separately; padding: 0 for the ul css though
             tags = '<ul class="project-tags">' + "".join(f'<li class="project-tag">{t}</li>' for t in project_data[field]) + '</ul>'
             template = template.replace('{{' + field + '}}', tags)
         else:
@@ -136,7 +122,7 @@ for page in page_data:
                      # don't want plaintext email
                      .replace("firas.aldabbas@gmail.com", mbox_svg)
                      # make the links clickable.
-                     # TODO: shoulda just make a function for this
+                     # shoulda just make a function for this - or used markdown module more effectively!
                      .replace(linkedin, f'<a href="{linkedin}">{linkedin}</a>') 
                      .replace(github, f'<a href="{github}">{github}</a>')
                      .replace(portfolio, f'<a href="{portfolio}">{portfolio}</a>')
