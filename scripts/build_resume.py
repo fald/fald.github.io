@@ -2,6 +2,7 @@ from pathlib import Path
 import markdown
 
 # TODO: UAE photo, nationality, relocation, adgm profuke
+# TODO: (output format) docx output.
 # TODO: (cohesion) Linkedin, Github profile updates
 # TODO: (future) - links to find elsewhere; vibe coding git page, 'other stuff' (tech, non-tech), itch.io
 
