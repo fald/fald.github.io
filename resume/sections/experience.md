@@ -4,10 +4,9 @@
 *Remote | MAR 2024 - Present*  
 
 - Evaluate AI model outputs across a wide range of technical, reasoning, and instruction-following tasks.
-- Design task-specific evaluation rubrics and criteria to assess model quality, correctness, and adherence to requirements.
+- Design task-specific evaluation rubrics and criteria to assess model quality, correctness, and adherence to requirements to support iterative improvement of AI models.
 - Analyze code and repository-based tasks to identify failures, missed requirements, and opportunities for improvement.
 - Develop challenging and edge-case requirements to probe model capabilities and expose failure modes.
-- Provide structured feedback and corrections to support iterative improvement of AI model performance and reliability.
 
 
 **Aplikatest | Curriculum Development Manager, Teacher**  
@@ -34,7 +33,7 @@
 **Desiyn | Web Developer**  
 *Mississauga, ON | MAR 2014 - SEP 2015*  
 
--  Developed and maintained WordPress websites using PHP and MySQL.
+- Developed and maintained WordPress websites using PHP and MySQL.
 - Used web performance and load-time analysis tools to identify performance issues.
 - Investigated and reduced unnecessary WordPress plugin usage to improve site performance and maintainability.
 - Worked with database-backed web applications and resolved technical issues across the site stack.
