@@ -1,3 +1,3 @@
 ## PROFESSIONAL SUMMARY
 
-Data professional with a BSc in Computer Science and an MSc in Data Science (in progress). Experienced in Python, SQL, and R for data analysis, automation, and reporting, including solar and environmental data processing for power-generation estimates. Currently evaluating LLM outputs, designing rubrics, testing edge cases, and assessing model quality. Building modern projects spanning renewable-energy analytics, financial analysis, data engineering and AI-assisted applications.
+Data professional with a BSc in Computer Science and an MSc in Data Science (in progress). Experienced in Python, SQL, and R for data analysis, automation, and reporting, including solar and environmental data processing for power-generation estimates. Currently evaluating LLM outputs, designing rubrics, testing edge cases, and identifying model failures. Building projects spanning renewable-energy analytics, data engineering and AI-assisted applications.
